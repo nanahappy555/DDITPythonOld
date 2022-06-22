@@ -17,6 +17,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 
+/**
+* 원하는 단 입력하면 해당하는 구구단 출력
+*/
 public class Main4 extends Application {
 	
 	TextField tf;
