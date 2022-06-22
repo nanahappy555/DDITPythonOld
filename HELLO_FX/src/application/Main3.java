@@ -15,7 +15,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
-
+/**
+* 구구단 출력
+*/
 public class Main3 extends Application {
 	
 	TextField tf1;
