@@ -1,5 +1,6 @@
 from astropy.io.fits.util import first
 from Cython.Compiler.Naming import self_cname
+from anaconda_navigator.utils.win_elevate import SW
 class Xi:
     def __init__(self):
         self.money = 1000
@@ -36,8 +37,17 @@ class Sungwoo(Xi, Putin, Jungeun):
         self.knowledge += first
         
 
-a = Sungwoo()
-print(a.nuclear)
-print(a.money)
-print(a.missile)
-print(a.knowledge)
+sw = Sungwoo()
+print("시진핑의 재산",sw.money)
+print("푸틴의 핵 갯수",sw.nuclear)
+print("정은이의 미사일",sw.missile)
+print("성우의 지식",sw.knowledge)
+sw.steal(1)
+sw.alzheimer()
+sw.ssorau()
+sw.study(3)
+print("3일 후...")
+print("시진핑의 재산",sw.money)
+print("푸틴의 핵 갯수",sw.nuclear)
+print("정은이의 미사일",sw.missile)
+print("성우의 지식",sw.knowledge)
