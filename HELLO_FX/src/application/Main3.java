@@ -16,7 +16,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 /**
-* 구구단 출력
+* 버튼 클릭하면 더하기 연산
 */
 public class Main3 extends Application {
 	
