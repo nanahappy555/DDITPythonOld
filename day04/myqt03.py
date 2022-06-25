@@ -1,13 +1,14 @@
 """
-버튼 클릭하면 good evening으로 바뀌게
+a + b = 버튼 클릭 시 출력
 """
 from PyQt5 import uic
 from PyQt5.Qt import QMainWindow, QApplication
 import sys
 
 
+
 # ui파일(xml형식) 연결
-form_class = uic.loadUiType("myqt01.ui")[0]
+form_class = uic.loadUiType("myqt03.ui")[0]
 
 # 윈도우를 띄워주는 메소드
 class WindowClass(QMainWindow, form_class):
@@ -19,10 +20,18 @@ class WindowClass(QMainWindow, form_class):
         self.pb.clicked.connect(self.buttonClick)
         # self.show() 메인에 쓴 myWindow.show()와 같음
         
-    
+    # 버튼 클릭 이벤트
     def buttonClick(self):
-        # print("pushbutton click")
-        self.lbl.setText("good evening~~~")
+        a = self.le1.text()
+        b = self.le2.text()
+        
+        aa = int(a)
+        bb = int(b)
+        
+        sum = aa + bb
+        
+        self.le3.setText(str(sum))
+        
         
 
 # 메인메소드?

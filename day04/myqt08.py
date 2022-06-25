@@ -1,13 +1,14 @@
 """
-버튼 클릭하면 good evening으로 바뀌게
+별 출력하기
 """
 from PyQt5 import uic
 from PyQt5.Qt import QMainWindow, QApplication
 import sys
+import random
 
 
 # ui파일(xml형식) 연결
-form_class = uic.loadUiType("myqt01.ui")[0]
+form_class = uic.loadUiType("myqt08.ui")[0]
 
 # 윈도우를 띄워주는 메소드
 class WindowClass(QMainWindow, form_class):
@@ -21,10 +22,27 @@ class WindowClass(QMainWindow, form_class):
         
     
     def buttonClick(self):
-        # print("pushbutton click")
-        self.lbl.setText("good evening~~~")
+        a = self.le_first.text()
+        b = self.le_last.text()
+        num1 = int(a);
+        num2 = int(b);
         
-
+        result = "";
+        
+        for i in range(num1,num2+1):
+            result += self.drawStar(i)
+        
+        self.te.setText(result);
+        
+    def drawStar(self, cnt):
+        ret = "";
+        for i in range(cnt):
+            ret+="*"
+        
+        ret+="\n"
+        
+        return ret;
+        
 # 메인메소드?
 if __name__ == "__main__":
     #QApplication : 프로그램을 실행시켜주는 클래스

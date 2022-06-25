@@ -1,5 +1,5 @@
 """
-버튼 클릭하면 good evening으로 바뀌게
+x와 y 사이의 의 z배수의 합
 """
 from PyQt5 import uic
 from PyQt5.Qt import QMainWindow, QApplication
@@ -7,7 +7,7 @@ import sys
 
 
 # ui파일(xml형식) 연결
-form_class = uic.loadUiType("myqt01.ui")[0]
+form_class = uic.loadUiType("myqt0a.ui")[0]
 
 # 윈도우를 띄워주는 메소드
 class WindowClass(QMainWindow, form_class):
@@ -21,8 +21,17 @@ class WindowClass(QMainWindow, form_class):
         
     
     def buttonClick(self):
-        # print("pushbutton click")
-        self.lbl.setText("good evening~~~")
+        x = int(self.le1.text())
+        y = int(self.le2.text())
+        z = int(self.le3.text())
+        
+        result = 0
+        
+        for i in range(x,y+1):
+            if(i % z == 0):
+                result += i
+        
+        self.le_result.setText(str(result))
         
 
 # 메인메소드?

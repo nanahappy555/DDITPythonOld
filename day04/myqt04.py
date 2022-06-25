@@ -1,5 +1,5 @@
 """
-버튼 클릭하면 good evening으로 바뀌게
+단수 입력 시 해당하는 구구단 출력
 """
 from PyQt5 import uic
 from PyQt5.Qt import QMainWindow, QApplication
@@ -7,7 +7,7 @@ import sys
 
 
 # ui파일(xml형식) 연결
-form_class = uic.loadUiType("myqt01.ui")[0]
+form_class = uic.loadUiType("myqt04.ui")[0]
 
 # 윈도우를 띄워주는 메소드
 class WindowClass(QMainWindow, form_class):
@@ -19,11 +19,22 @@ class WindowClass(QMainWindow, form_class):
         self.pb.clicked.connect(self.buttonClick)
         # self.show() 메인에 쓴 myWindow.show()와 같음
         
-    
+    # le(단 입력), pb(출력버튼), te(출력창)
     def buttonClick(self):
-        # print("pushbutton click")
-        self.lbl.setText("good evening~~~")
+        a = self.le.text()
+        aa = int(a)
         
+        dan = "***" + a + "단***\n"
+        
+        
+        print(dan)
+        
+        for i in range(1,9+1):
+            # dan += 2 * 3 = 6(2*3)
+            # dan += "{}*{}={}\n".format(2,3,2*3)
+            dan += "{}*{}={}\n".format(aa,i,aa*i)
+        
+        self.te.setText(dan)
 
 # 메인메소드?
 if __name__ == "__main__":
