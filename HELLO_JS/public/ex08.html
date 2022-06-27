@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+.it {
+	width: 30px;
+}
+</style>
+<script>
+function myClick() {
+	let itFirst = document.getElementById('it_first').value;
+	let itLast = document.getElementById('it_last').value;
+	
+	let num1 = parseInt(itFirst);
+	let num2 = parseInt(itLast);
+	
+	let result = "";
+	for(var i = num1; i<=num2; i++) {
+		for(var k = num1; k<=i; k++){
+		result += "*"
+		}
+		result += "\n"
+	}
+	
+	document.querySelector('#mydiv').innerText = result;
+}
+</script>
+</head>
+<body>
+<pre>
+	ex 08 : 별 그리기
+</pre>
+
+<table border="1">
+	<tr>
+		<td>첫별수:</td>
+		<td><input type="text" class="it" id="it_first" /></td>
+	</tr>
+	
+	<tr>
+		<td>끝별수:</td>
+		<td><input type="text" class="it" id="it_last" /></td>
+	</tr>
+	
+	<tr>
+		<td colspan="2"><input type="button" value="별 출력하기" style="width: 100%" onclick="myClick()"/></td>
+	</tr>
+	
+	<tr>
+		<td colspan="2" style="height: 200px;"><div id="mydiv"></div></td>
+	</tr>
+</table>
+</body>
+</html>

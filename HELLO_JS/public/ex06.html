@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+table {
+	border-collapse: collapse;
+}
+</style>
+<script>
+let i = 0;
+function myClick() {
+	let lottos = new Array();
+	for(i = 0; i<6; i++){
+		let rnd = Math.floor(Math.random()*45 + 1);
+		
+		if(lottos.indexOf(rnd) == -1) { //-1은 중복되지 않은 경우
+			lottos[i] = rnd;
+			console.log(`if : idx, ${lottos.indexOf(rnd)}, ${rnd}`);
+		}else { //중복될 때
+			i -= 1;
+			console.log(`else>> i : ${i},  idx : ${lottos.indexOf(rnd)}, ${rnd}`);
+		}
+		
+		document.getElementsByClassName('mydiv')[i].innerText = lottos[i];
+	}
+		
+}
+</script>
+</head>
+<body>
+<pre>
+	ex 06 : 로또
+</pre>
+<div class="samplediv"></div>
+<div class="samplediv"></div>
+<table border="1">
+	<tr>
+		<td><div class="mydiv">__</div></td>
+		<td><div class="mydiv">__</div></td>
+		<td><div class="mydiv">__</div></td>
+		<td><div class="mydiv">__</div></td>
+		<td><div class="mydiv">__</div></td>
+		<td><div class="mydiv">__</div></td>
+	</tr>
+	
+	<tr>
+		<td colspan="6"><input type="button" value="로또생성하기" style="width: 100%" onclick="myClick()"/></td>
+	</tr>
+</table>
+</body>
+</html>
