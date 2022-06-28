@@ -9,6 +9,23 @@
 }
 </style>
 <script>
+//keyCheck(event)로 써도 똑같이 실행
+function keyCheck(e) {
+// 	console.log(e);
+	
+// 	if (e.keyCode == 13){
+// 		myClick();
+// 	}
+	
+	if (e.key == "Enter") {
+		myClick();
+	}
+	
+// 	if (e.code == 'Enter') {
+// 		myClick();
+// 	}
+}
+
 function myClick() {
 	let mine = document.getElementById('itMine').value;
 	let com = "";
@@ -49,7 +66,7 @@ ex 07 : 가위바위보 게임
 <table border="1">
 	<tr>
 		<td>나</td>
-		<td><input type="text" class="it" id="itMine" /></td>
+		<td><input type="text" class="it" id="itMine" onkeydown="keyCheck(event)"/></td>
 	</tr>
 	
 	<tr>

@@ -9,18 +9,49 @@ table {
 }
 </style>
 <script>
+//sem 풀이. 1~45중에서 꺼내온 것은 배열에서 사라지게 (실제 로또 뽑는 것 처럼)
+//C나 C++에서는 쓸 수 없는 방법 (push(), splice()가 없다)
+function sem(){
+	let arr45 = [];
+	let arr6 = [];
+	for(let i=1; i<=45; i++){
+		arr45.push(i);
+	}
+	
+	for(let i=0; i<6; i++){
+		let rnd = parseInt(Math.random()*arr45.length);
+		arr6.push(arr45[rnd]); // arr6에 넣기
+		arr45.splice(rnd, 1); // arr45에서는 꺼내기
+	// 	arr45.splice(2, 1); //idx 2 (==3)부터 1개 삭제하고 배열길이도 줄어둚
+	}
+	
+	console.log(arr45);
+	console.log(arr6);
+	
+	let objs = document.querySelectorAll('.mydiv');
+	objs[0].innerText = arr6[0];
+	objs[1].innerText = arr6[1];
+	objs[2].innerText = arr6[2];
+	objs[3].innerText = arr6[3];
+	objs[4].innerText = arr6[4];
+	objs[5].innerText = arr6[5];
+	objs[6].innerText = arr6[6];
+	
+}
+</script>
+<script>
 let i = 0;
 function myClick() {
 	let lottos = new Array();
 	for(i = 0; i<6; i++){
 		let rnd = Math.floor(Math.random()*45 + 1);
 		
-		if(lottos.indexOf(rnd) == -1) { //-1�� �ߺ����� ���� ���
+		if(lottos.indexOf(rnd) == -1) { //-1은 중복되지 않은 경우
 			lottos[i] = rnd;
-			console.log(`if : idx, ${lottos.indexOf(rnd)}, ${rnd}`);
-		}else { //�ߺ��� ��
+// 			console.log(`if : idx, ${lottos.indexOf(rnd)}, ${rnd}`);
+		}else { //중복될 때
 			i -= 1;
-			console.log(`else>> i : ${i},  idx : ${lottos.indexOf(rnd)}, ${rnd}`);
+// 			console.log(`else>> i : ${i},  idx : ${lottos.indexOf(rnd)}, ${rnd}`);
 		}
 		
 		document.getElementsByClassName('mydiv')[i].innerText = lottos[i];
@@ -31,7 +62,7 @@ function myClick() {
 </head>
 <body>
 <pre>
-	ex 06 : �ζ�
+	ex 06 : 로또
 </pre>
 <div class="samplediv"></div>
 <div class="samplediv"></div>
@@ -46,7 +77,7 @@ function myClick() {
 	</tr>
 	
 	<tr>
-		<td colspan="6"><input type="button" value="�ζǻ����ϱ�" style="width: 100%" onclick="myClick()"/></td>
+		<td colspan="6"><input type="button" value="로또생성하기" style="width: 100%" onclick="myClick()"/></td>
 	</tr>
 </table>
 </body>

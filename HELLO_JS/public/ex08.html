@@ -9,22 +9,29 @@
 }
 </style>
 <script>
-function myClick() {
-	let itFirst = document.getElementById('it_first').value;
-	let itLast = document.getElementById('it_last').value;
+function myClick(){
+	var a = document.querySelector("#it_first").value;
+	var b = document.querySelector("#it_last").value;
+	var aa = parseInt(a);
+	var bb = parseInt(b);
 	
-	let num1 = parseInt(itFirst);
-	let num2 = parseInt(itLast);
+	var txt = "";
 	
-	let result = "";
-	for(var i = num1; i<=num2; i++) {
-		for(var k = num1; k<=i; k++){
-		result += "*"
-		}
-		result += "\n"
+	for(var i=aa;i<=bb;i++){
+		txt += drawStar(i);
 	}
 	
-	document.querySelector('#mydiv').innerText = result;
+	document.querySelector("#mydiv").innerHTML = txt;
+	
+}
+
+function drawStar(cnt){
+	var ret = "";
+	for(var i=0;i<cnt;i++){
+		ret += "*";
+	}
+	ret+="<br/>"
+	return ret;
 }
 </script>
 </head>

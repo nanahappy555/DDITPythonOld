@@ -13,6 +13,15 @@
 }
 </style>
 <script>
+//샘 풀이가 더 간단... "충격"
+//다 똑같은 함수 onclick="sem(event)" 넣어주면 끝
+function sem(e){
+// 	console.log(e.target.value); //e.target=클릭한 버튼
+	let str_new = e.target.value;
+	let str_old = document.querySelector('#it').value; //이미 입력된 텍스트
+	document.querySelector('#it').value = str_old + str_new;
+}
+
 let txt = "";
 
 function btnClick(val){
