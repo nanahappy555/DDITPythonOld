@@ -79,10 +79,9 @@ public class DaoEmp {
 
 		String sql = "";
 		sql += "insert into emp ";
-		sql += "(e_id,e_name,sex,addr) ";
+		sql += "(e_name,sex,addr) ";
 		sql += "values ";
-		sql += "('"+vo.getE_id()+"','"+vo.getE_name()+"','"
-					+vo.getSex()+"','"+vo.getAddr()+"')";
+		sql += "('" + vo.getE_name() + "','" + vo.getSex() + "','" + vo.getAddr() + "')";
 
 		int cnt = stmt.executeUpdate(sql);
 		
@@ -100,10 +99,12 @@ public class DaoEmp {
 		Statement stmt = conn.createStatement();
 		
 		String sql = " update emp "
-				+ " set e_name= " + vo.getE_name() + ","
-				+ " sex= " + vo.getSex() + ","
-				+ " addr= " + vo.getAddr()
-				+ " where e_id= " + vo.getE_id();
+				+ " set e_name= '" + vo.getE_name() + "',"
+				+ " sex= '" + vo.getSex() + "',"
+				+ " addr= '" + vo.getAddr()+ "'"
+				+ " where e_id= '" + vo.getE_id()+ "'";
+		
+		
 		
 		int cnt = stmt.executeUpdate(sql);
 		
